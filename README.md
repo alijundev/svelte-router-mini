@@ -36,13 +36,14 @@ pnpm add svelte-router-mini
   import Home from "./routes/Home.svelte";
   import About from "./routes/About.svelte";
   import Todos from "./routes/Todos.svelte";
+  import FallBack from "./routes/FallBack.svelte"
 
   // init router
   const router = createRouter([
     { path: "/", component: Home },
     { path: "/about", component: About },
     { path: "/todos", component: Todos },
-  ]);
+  ], FallBack);
 </script>
 
 <nav>
@@ -97,14 +98,14 @@ pnpm add svelte-router-mini
   }
 </script>
 
-<button on:click={goDashboard}>Go to Dashboard</button>
+<button onclick={goDashboard}>Go to Dashboard</button>
 ```
 
 ---
 
 ## ⚡ API
 
-### `createRouter(routes: Route[])`
+### `createRouter(routes: Route[], fallback: Component)`
 
 Initialize router with route table.
 
