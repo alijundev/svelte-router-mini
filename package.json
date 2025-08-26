@@ -1,6 +1,6 @@
 {
 	"name": "svelte-router-mini",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && pnpm run prepack",
@@ -52,9 +52,9 @@
 		]
 	},
 	"repository": {
-    "type": "git",
-    "url": "https://github.com/alijundev/svelte-router-mini"
-  },
+		"type": "git",
+		"url": "https://github.com/alijundev/svelte-router-mini"
+	},
 	"homepage": "https://www.npmjs.com/package/svelte-router-mini",
 	"license": "MIT",
 	"author": "Sulfikar Alijun <alijun.dev@gmail.com>"
