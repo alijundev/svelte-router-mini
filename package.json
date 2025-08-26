@@ -1,6 +1,6 @@
 {
 	"name": "svelte-router-mini",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && pnpm run prepack",
@@ -52,5 +52,6 @@
 	"repository": {
     "type": "git",
     "url": "https://github.com/alijundev/svelte-router-mini"
-  }
+  },
+	"homepage": "https://www.npmjs.com/package/svelte-router-mini"
 }
