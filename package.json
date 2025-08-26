@@ -42,7 +42,9 @@
 		"vite": "^7.0.4"
 	},
 	"keywords": [
-		"svelte"
+		"svelte",
+		"svelte router",
+		"small router"
 	],
 	"pnpm": {
 		"onlyBuiltDependencies": [
@@ -53,5 +55,7 @@
     "type": "git",
     "url": "https://github.com/alijundev/svelte-router-mini"
   },
-	"homepage": "https://www.npmjs.com/package/svelte-router-mini"
+	"homepage": "https://www.npmjs.com/package/svelte-router-mini",
+	"license": "MIT",
+	"author": "Sulfikar Alijun <alijun.dev@gmail.com>"
 }
