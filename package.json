@@ -1,6 +1,6 @@
 {
 	"name": "svelte-router-mini",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && pnpm run prepack",
@@ -48,5 +48,9 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
-	}
+	},
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/alijundev/svelte-router-mini"
+  }
 }
