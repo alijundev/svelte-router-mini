@@ -1,58 +1,168 @@
-# Svelte library
+# 📘 `svelte-router-mini`
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+Lightweight, Vue Router–style SPA router for **Svelte 5**.
+✨ Simple, minimal, and zero dependencies.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+---
 
-## Creating a project
+## 🚀 Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+* Vue Router–like API (`RouterView`, `RouterLink`, `createRouter`)
+* History API (push/replace)
+* Reactive Svelte store for route tracking
+* Automatic active class on `<RouterLink>`
+* 404 fallback
+* Tiny footprint
 
-```sh
-# create a new project in the current directory
-npx sv create
+---
 
-# create a new project in my-app
-npx sv create my-app
+## 📦 Installation
+
+```bash
+npm install svelte-router-mini
+# or
+pnpm add svelte-router-mini
 ```
 
-## Developing
+---
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 🛠️ Usage
 
-```sh
-npm run dev
+### 1. Define routes
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```svelte
+<script>
+  import { createRouter, RouterView, RouterLink } from "svelte-router-mini";
+  import Home from "./routes/Home.svelte";
+  import About from "./routes/About.svelte";
+  import Todos from "./routes/Todos.svelte";
+
+  // init router
+  const router = createRouter([
+    { path: "/", component: Home },
+    { path: "/about", component: About },
+    { path: "/todos", component: Todos },
+  ]);
+</script>
+
+<nav>
+  <RouterLink to="/">Home</RouterLink>
+  <RouterLink to="/about">About</RouterLink>
+  <RouterLink to="/todos">Todos</RouterLink>
+</nav>
+
+<main>
+  <RouterView />
+</main>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+---
 
-## Building
+### 2. Create pages
 
-To build your library:
+`src/routes/Home.svelte`
 
-```sh
-npm pack
+```svelte
+<h1>Home Page</h1>
 ```
 
-To create a production version of your showcase app:
+`src/routes/About.svelte`
 
-```sh
-npm run build
+```svelte
+<h1>About Page</h1>
 ```
 
-You can preview the production build with `npm run preview`.
+`src/routes/Todos.svelte`
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```sh
-npm publish
+```svelte
+<h1>Todos Page</h1>
 ```
+
+---
+
+### 3. Navigation programmatically
+
+```svelte
+<script>
+  import { createRouter } from "svelte-router-mini";
+
+  const router = createRouter([]);
+
+  function goDashboard() {
+    router.push("/dashboard");
+  }
+
+  function redirectAfterLogin() {
+    router.replace("/dashboard");
+  }
+</script>
+
+<button on:click={goDashboard}>Go to Dashboard</button>
+```
+
+---
+
+## ⚡ API
+
+### `createRouter(routes: Route[])`
+
+Initialize router with route table.
+
+* `routes: { path: string, component: SvelteComponent }[]`
+
+Returns:
+
+* `router.push(path: string)` → navigate and add to history
+* `router.replace(path: string)` → navigate without adding history
+
+---
+
+### `<RouterView />`
+
+Render the active component based on current route.
+
+---
+
+### `<RouterLink to="path">`
+
+Navigate to a path. Adds `"active"` class when route is current.
+
+Props:
+
+* `to: string` → path to navigate
+* `className?: string` → optional custom class
+
+---
+
+## 📂 Project Structure Example
+
+```
+src/
+ ├─ routes/
+ │   ├─ Home.svelte
+ │   ├─ About.svelte
+ │   └─ Todos.svelte
+ ├─ App.svelte
+ └─ main.js
+```
+
+---
+
+## 🌍 Roadmap
+
+* [ ] Dynamic routes (`/todos/:id`)
+* [ ] Nested routes
+* [ ] Navigation guards (`beforeEach`)
+* [ ] Lazy loading
+
+---
+
+## 🐞 Issues
+
+If you find a bug or have feature requests, please open an [issue](https://github.com/alijundev/svelte-router-mini/issues).
+
+---
+
+## 📄 License
+
+MIT © [alijundev](https://github.com/alijundev)
