@@ -2,8 +2,7 @@
   import { currentRoute } from "./router.js";
   import { get } from "svelte/store";
 
-  export let to = "/";
-  export let className = "";
+  let { to, className}: { to: string, className: string} = $props()
 
   function navigate(e: Event) {
     e.preventDefault();
@@ -14,8 +13,7 @@
 
 <a
   href={to}
-  on:click={navigate}
-  class="{className} {get(currentRoute) === to ? 'text-blue-500 font-bold' : ''}"
->
+  onclick={navigate}
+  class="{className}">
   <slot />
 </a>
